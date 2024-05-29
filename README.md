@@ -1,4 +1,3 @@
-# resume_parser
 # Resume Parser
 
 ## Overview
