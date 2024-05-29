@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Top Candidates</title>
+</head>
+<body>
+    <h1>Top Candidates for the Position</h1>
+    <table border="1">
+        <tr>
+            <th>Candidate Name</th>
+            <th>Combined Score</th>
+            <th>Similarity</th>
+            <th>Keyword Score</th>
+            <!-- <th>Chances (%)</th> -->
+            <th>Download Resume</th>
+        </tr>
+        {% if candidates %}
+        {% for candidate, scores in candidates %}
+        <tr>
+            <td>{{ candidate }}</td>
+            <td>{{ scores['combined_score'] }}</td>
+            <td>{{ scores['similarity'] }}</td>
+            <td>{{ scores['keyword_score'] }}</td>
+            <!-- <td>{{ (scores['combined_score'] / top_score) * 100 }}</td> -->
+            <td><a href="{{ url_for('download_resume', filename=candidate) }}">Download</a></td>
+        </tr>
+        {% endfor %}
+        {% endif %}
+    </table>
+</body>
+</html>
